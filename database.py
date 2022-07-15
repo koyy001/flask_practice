@@ -1,14 +1,16 @@
 import pandas as pd
 
+
 def save(keyword, add_margin, merge, built):
     idx = len(pd.read_csv("database.csv"))
-    new_df = pd.DataFrame({"keyword":keyword,
-                           "add_margin":add_margin,
-                           "merge":merge,
-                           "built":built},
-                           index = [idx])
-    new_df.to_csv("database.csv",mode = "a", header = False)
+    new_df = pd.DataFrame({"keyword": keyword,
+                           "add_margin": add_margin,
+                           "merge": merge,
+                           "built": built},
+                          index=[idx])
+    new_df.to_csv("database.csv", mode="a", header=False)
     return None
+
 
 def load_list():
     house_list = []
@@ -18,9 +20,10 @@ def load_list():
     print(house_list)
     return house_list
 
+
 def now_index():
     df = pd.read_csv("database.csv")
-    return len(df)-1
+    return len(df) - 1
 
 
 def load_house(idx):
@@ -29,5 +32,5 @@ def load_house(idx):
     return house_info
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     load_list()
